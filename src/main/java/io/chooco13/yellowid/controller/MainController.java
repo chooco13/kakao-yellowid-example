@@ -81,8 +81,8 @@ public class MainController {
 
     @RequestMapping(value = "/friend", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
-    public void addFriend(@RequestBody String user_key) {
-        logger.debug("add user_key::" + user_key);
+    public void addFriend(@RequestBody Map<String,String> req) {
+        logger.debug("add user_key::" + req.get("user_key"));
     }
 
     @RequestMapping(value = "/friend/{user_key}", method = RequestMethod.DELETE)
