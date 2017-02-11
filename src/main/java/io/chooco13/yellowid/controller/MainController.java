@@ -25,12 +25,12 @@ public class MainController {
         Keyboard keyboard = new Keyboard();
 
         // 주관식 답변을 원할 경우
-        // keyboard.setType("text");
+        keyboard.setType("text");
 
         // 객관식 답변을 원할 경우
-        keyboard.setType("buttons");
-        String[] buttons = {"선택 1", "선택 2", "선택 3"};
-        keyboard.setButtons(buttons);
+        // keyboard.setType("buttons");
+        // String[] buttons = {"선택 1", "선택 2", "선택 3"};
+        // keyboard.setButtons(buttons);
 
         return keyboard;
     }
@@ -49,17 +49,14 @@ public class MainController {
         return response;
     }
 
-    @ResponseBody
     @RequestMapping(value = "/friend", method = RequestMethod.POST)
-    public String addFriend(@RequestBody String user_key) {
+    public void addFriend(@RequestBody String user_key) {
         logger.debug("add user_key::" + user_key);
-
-        return user_key;
     }
 
     @ResponseBody
     @RequestMapping(value = "/friend/{user_key}", method = RequestMethod.DELETE)
-    public String deleteFriend(@PathVariable("user_key") String user_key) {
+    public String deleteFriend(@PathVariable String user_key) {
         logger.debug("delete user_key::" + user_key);
 
         return user_key;
@@ -67,7 +64,7 @@ public class MainController {
 
     @ResponseBody
     @RequestMapping(value = "/chat_room/{user_key}", method = RequestMethod.DELETE)
-    public String exitChat(@PathVariable("user_key") String user_key) {
+    public String exitChat(@PathVariable String user_key) {
         logger.debug("leave user_key::" + user_key);
 
         return user_key;
