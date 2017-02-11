@@ -29,7 +29,7 @@ jar {
     manifest {
         attributes(
                 'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
-                'Main-Class': 'io.chooco13.yellowid.YellowIdApplication'
+                'Main-Class': 'io.chooco13.yellowid.YellowIDApplication'
         )
     }
 }
