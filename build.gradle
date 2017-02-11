@@ -19,3 +19,17 @@ dependencies {
     // lombok
     compile "org.projectlombok:lombok:1.16.12"
 }
+
+sourceSets {
+    main.java.srcDir "src/main/java"
+    main.resources.srcDir "src/main/resources"
+}
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'io.chooco13.yellowid.YellowIdApplication'
+        )
+    }
+}
