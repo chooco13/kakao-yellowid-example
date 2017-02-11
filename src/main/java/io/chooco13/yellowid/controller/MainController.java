@@ -6,6 +6,7 @@ import io.chooco13.yellowid.module.domain.Keyboard;
 import io.chooco13.yellowid.module.domain.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,23 +51,20 @@ public class MainController {
     }
 
     @RequestMapping(value = "/friend", method = RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.OK)
     public void addFriend(@RequestBody String user_key) {
         logger.debug("add user_key::" + user_key);
     }
 
-    @ResponseBody
     @RequestMapping(value = "/friend/{user_key}", method = RequestMethod.DELETE)
-    public String deleteFriend(@PathVariable String user_key) {
+    @ResponseStatus(value = HttpStatus.OK)
+    public void deleteFriend(@PathVariable String user_key) {
         logger.debug("delete user_key::" + user_key);
-
-        return user_key;
     }
 
-    @ResponseBody
     @RequestMapping(value = "/chat_room/{user_key}", method = RequestMethod.DELETE)
-    public String exitChat(@PathVariable String user_key) {
+    @ResponseStatus(value = HttpStatus.OK)
+    public void exitChat(@PathVariable String user_key) {
         logger.debug("leave user_key::" + user_key);
-
-        return user_key;
     }
 }
