@@ -21,6 +21,11 @@ public class MainController {
     // https://yellowid.kakao.com/bot/api 에서 설정 필요
     // https://github.com/plusfriend/auto_reply 를 참고하여 구현
 
+    // kaffeine 적용을 위해 추가 (https://kaffeine.herokuapp.com/)
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void mainPage() {}
+
     // 최초 채팅방에 들어왔을 때
     @ResponseBody
     @RequestMapping(value = "/keyboard", method = RequestMethod.GET)
