@@ -9,4 +9,6 @@ public class Message {
     private String user_key;
     private String type;
     private String content;
+    private Photo photo;
+    private MessageButton message_button;
 }
