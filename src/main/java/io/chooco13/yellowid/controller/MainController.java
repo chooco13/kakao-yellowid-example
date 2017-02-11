@@ -22,7 +22,7 @@ public class MainController {
     // https://github.com/plusfriend/auto_reply 를 참고하여 구현
 
     // kaffeine 적용을 위해 추가 (https://kaffeine.herokuapp.com/)
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public void mainPage() {}
 
